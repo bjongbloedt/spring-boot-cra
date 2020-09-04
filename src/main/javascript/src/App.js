@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
 
-    // const [thing] = useState([]);
+    const [name, setName] = useState("Unknown User");
 
     useEffect(() => {
         load();
@@ -12,12 +12,11 @@ function App() {
 
 
     const load = async () => {
-        const response = await fetch("api/v1/widgets");
-        console.log(response);
+        const response = await fetch("http://localhost:8080/api/v1/widgets");
         const data = await response.json();
-
-        console.log(data);
-        // setThing(data)
+        if (data[0].name) {
+            setName(data[0].name)
+        }
     };
 
 
@@ -26,7 +25,7 @@ function App() {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
                 <p>
-                    Edit <code>src/App.js</code> and save to reload
+                    Edit <code>src/App.js</code> and save to {name}
                 </p>
                 <a
                     className="App-link"
