@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:12.4://testing:0000/widgets
+    username: sa
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver

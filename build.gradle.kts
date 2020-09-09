@@ -29,6 +29,7 @@ tasks {
     register("npmBuild", com.moowork.gradle.node.npm.NpmTask::class) {
         dependsOn("npmSetup")
         dependsOn("npmInstall")
+        dependsOn("npm_test")
         setArgs(mutableListOf("run", "build"))
     }
 
@@ -40,6 +41,10 @@ tasks {
 
     bootJar {
         dependsOn("copyReactToBuild")
+    }
+
+    bootBuildImage {
+        imageName = "docker.io/benjongbloedt/widget-service:${project.version}"
     }
 }
 
