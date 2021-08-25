@@ -1,24 +1,27 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.3.3.RELEASE"
-    id("io.spring.dependency-management") version "1.0.10.RELEASE"
-    kotlin("jvm") version "1.3.72"
-    kotlin("plugin.spring") version "1.3.72"
-    kotlin("plugin.jpa") version "1.3.72"
-    id("com.github.node-gradle.node") version "2.2.4"
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
+    kotlin("jvm")
+    kotlin("plugin.spring")
+    kotlin("plugin.jpa")
+    id("com.github.node-gradle.node")
 }
 
 group = "com.bjongbloedt"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
+val testContainersVersion: String by extra
+val nodeVersion: String by extra
+
 repositories {
     mavenCentral()
 }
 
 node {
-    version = "10.20.1"
+    version = nodeVersion
     download = true
     workDir = file(".gradle/nodejs")
     npmWorkDir = file(".gradle/npm")
@@ -48,8 +51,6 @@ tasks {
     }
 }
 
-extra["testcontainersVersion"] = "1.14.3"
-
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -70,7 +71,7 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom("org.testcontainers:testcontainers-bom:${property("testcontainersVersion")}")
+        mavenBom("org.testcontainers:testcontainers-bom:$testContainersVersion")
     }
 }
 
