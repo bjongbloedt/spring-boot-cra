@@ -43,7 +43,7 @@ node_modules
 coverage
 
 # production
-widget-service/src/main/javascript/build
+widget-web/src/main/javascript/build
 
 # misc
 .DS_Store

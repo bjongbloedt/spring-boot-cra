@@ -1,6 +1,6 @@
 rootProject.name = "widget"
 
-include("widget-service")
+include("widget-service", "widget-web")
 
 pluginManagement {
     val kotlinVersion: String by settings
