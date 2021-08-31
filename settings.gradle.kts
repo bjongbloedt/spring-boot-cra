@@ -1,14 +1,15 @@
 rootProject.name = "widget"
 
+include("widget-service")
+
 pluginManagement {
     val kotlinVersion: String by settings
     val springBootVersion: String by settings
     val springDependencyManagementVersion: String by settings
     val gradleNodeVersion: String by settings
     plugins {
-
         kotlin("jvm") version kotlinVersion
-        kotlin("jvm") version kotlinVersion
+        kotlin("kapt") version kotlinVersion
 
         id("org.springframework.boot") version springBootVersion
         id("io.spring.dependency-management") version springDependencyManagementVersion
