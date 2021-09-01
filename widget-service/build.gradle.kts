@@ -25,6 +25,7 @@ tasks {
 dependencies {
     runtimeOnly(project(":widget-web"))
 
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
 
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -33,7 +34,6 @@ dependencies {
     implementation("org.flywaydb:flyway-core")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
 
     runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
