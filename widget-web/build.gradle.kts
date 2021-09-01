@@ -51,5 +51,10 @@ tasks {
 
     clean {
         delete(packageWebApp.get().archiveFile)
+        delete(file("$jsFolder/build"))
+    }
+
+    check {
+        dependsOn("npm_run_test")
     }
 }
