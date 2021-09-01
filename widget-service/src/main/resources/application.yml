@@ -3,10 +3,10 @@ spring:
     name: api-widgets
   datasource:
     username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    password: mysecretpostgrespassword
     url: ${DB_URL}
   flyway:
-    password: ${DB_USERNAME}
+    password: mysecretpostgrespassword
     user: ${DB_USERNAME}
 
 debug: true
